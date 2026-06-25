@@ -15,8 +15,8 @@ int main(){
     logger.warn("The {} Tried to fail {} Times", "system", 3);
     logger.err("DAMN THAT SHOULDNT HAPPEN");
     logger.err("OMG {0} failed {1} {0} Time", "system", 1);
-    logger.debug("nyanbug");
-    logger.debug("nyanbug number {}", 1);
+    logger.debug("debug");
+    logger.debug("debug number {}", 1);
     logger.info("This code workds");
     logger.info("This code {} works", "kinda?");
 }

@@ -22,15 +22,19 @@ public:
     Zlog() : Zlog("./Logs/Zlog.log"){}
     
     Zlog(std::filesystem::path path){
-        std::filesystem::path base = path.string().substr(0, path.string().find('.'));
+        std::filesystem::path base = path.string().substr(0, path.string().find_last_of('.'));
         auto today = std::chrono::floor<std::chrono::days>(std::chrono::system_clock::now());
         std::chrono::year_month_day ymd{today};
 
         path = base.string() + "_" + 
             std::format("{:%Y-%m-%d %H:%M:%S}", std::chrono::floor<std::chrono::seconds>(std::chrono::system_clock::now())) +
             "" + (std::string)path.extension();
-
+        if(!path.parent_path().empty()){
+            std::filesystem::create_directories(path.parent_path());
+        }
+        
         file = std::ofstream(path);
+        std::println("{}",path.string());
         if(!file.is_open()){ 
             openFlag = false;
         }
