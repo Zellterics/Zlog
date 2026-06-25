@@ -11,6 +11,8 @@
 C++23 header only light app logger
 Zlog - 2026-6-24
 
+https://github.com/Zellterics/Zlog
+
 ZellTerics - zellterics@gmail.com
 */
 
